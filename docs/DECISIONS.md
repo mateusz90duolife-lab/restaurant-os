@@ -62,9 +62,9 @@ Doradca bezpieczeństwa Supabase ostrzega, że zalogowani mogą wywoływać funk
 
 Frontend używa nowego klucza `sb_publishable_…` (jawny z założenia). Funkcje Edge mają wyłączoną bramę JWT (`verify_jwt = false`), bo nie współpracuje ona z nowymi kluczami podpisu; obie funkcje same sprawdzają token w Auth i rolę w bazie (wywołanie bez tokenu zwraca 401 — sprawdzone na produkcji).
 
-## D15. Hosting na GitHub Pages z folderu `/docs`
+## D15. Hosting na GitHub Pages z gałęzi `gh-pages`
 
-Repozytorium jest publiczne, więc GitHub Pages jest darmowy. Zbudowana aplikacja leży w `/docs` (skrypt `scripts/publish-pages.mjs`), co działa z dowolnej gałęzi bez dodatkowego CI. Alternatywa (Vercel) jest opisana w `SETUP.md`.
+Repozytorium jest publiczne, więc GitHub Pages jest darmowy. Zbudowana aplikacja powstaje w `dist/` (skrypt `scripts/publish-pages.mjs`) i trafia na gałąź `gh-pages`. Alternatywa (Vercel) jest opisana w `SETUP.md`.
 
 ## D16. Widok stanów jako `security_invoker`
 

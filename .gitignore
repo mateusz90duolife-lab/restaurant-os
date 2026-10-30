@@ -10,3 +10,4 @@ e2e/.artifacts/
 public/sw-assets.js
 public/img/p/
 art-sheet.png
+dist/

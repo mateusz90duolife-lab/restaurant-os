@@ -11,7 +11,7 @@ Aplikacja działa na projekcie Supabase **restaurant-os** (region Frankfurt, pla
 | Skaner paragonów           |  ⚠️  | Funkcja gotowa; brakuje klucza `ANTHROPIC_API_KEY` (niżej, krok 4)                                 |
 | Konto właściciela          |  ✅  | Lokal „Moja Restauracja”, 12 kategorii startowych. Hasło tymczasowe zmień po pierwszym logowaniu   |
 | Zadania z szablonów (cron) |  ✅  | `pg_cron`, co godzinę (`ros-generate-tasks`)                                                       |
-| Frontend                   |  ✅  | GitHub Pages z gałęzi `gh-pages`: https://mateusz90duolife-lab.github.io/Ggh/                      |
+| Frontend                   |  ✅  | GitHub Pages z gałęzi `gh-pages`: https://mateusz90duolife-lab.github.io/restaurant-os/            |
 | E-mail z listą zakupów     |  ⚠️  | Funkcja gotowa; brakuje klucza Resend i harmonogramu (niżej)                                       |
 | Link resetu hasła          |  ⚠️  | Wymaga ustawienia adresu aplikacji w Supabase Auth (niżej)                                         |
 
@@ -24,13 +24,13 @@ bez tokenu 401; tabele bez logowania niedostępne.
 ### 1. GitHub Pages — gotowe
 
 Aplikacja jest publikowana z gałęzi **`gh-pages`** (zawiera tylko zbudowane pliki). GitHub włączył Pages automatycznie
-po jej utworzeniu. Adres: **https://mateusz90duolife-lab.github.io/Ggh/**
+po jej utworzeniu. Adres: **https://mateusz90duolife-lab.github.io/restaurant-os/**
 
 ### 2. Adres aplikacji w Supabase (dla linku „Nie pamiętasz hasła?”)
 
 Supabase → projekt **restaurant-os** → **Authentication → URL Configuration**:
 
-- **Site URL:** `https://mateusz90duolife-lab.github.io/Ggh/`
+- **Site URL:** `https://mateusz90duolife-lab.github.io/restaurant-os/`
 - **Redirect URLs:** dodaj ten sam adres
 
 Uwaga: wbudowana poczta Supabase wysyła maile tylko na adresy członków zespołu projektu i z limitem. Dla pracowników
@@ -56,6 +56,6 @@ Jeden odczyt paragonu to zwykle kilka groszy; limit to 60 skanów na lokal na do
 
 ## Aktualizacja aplikacji
 
-Po zmianach w kodzie: `cd restaurant-os && node scripts/publish-pages.mjs` (buduje do `/docs`), a następnie skopiuj
-zawartość `/docs` na gałąź `gh-pages` i wypchnij ją — GitHub opublikuje nową wersję w 1–2 minuty.
+Po zmianach w kodzie: `node scripts/publish-pages.mjs` (buduje do katalogu `dist/`), a następnie skopiuj
+zawartość `dist/` na gałąź `gh-pages` i wypchnij ją — GitHub opublikuje nową wersję w 1–2 minuty.
 Nowe migracje SQL wgrywasz przez `supabase db push` albo w SQL Editor.

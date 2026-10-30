@@ -11,7 +11,7 @@ Czas: ok. 45 minut. Potrzebujesz: konta Supabase, konta Vercel (lub dowolnego ho
 
 ## 2. Baza danych (migracje)
 
-Zainstaluj [Supabase CLI](https://supabase.com/docs/guides/cli) i w katalogu `restaurant-os`:
+Zainstaluj [Supabase CLI](https://supabase.com/docs/guides/cli) i w głównym katalogu repozytorium:
 
 ```bash
 supabase login
@@ -75,7 +75,7 @@ Aplikacja ma też zabezpieczenie: przy otwarciu ekranów „Dzisiaj” i „Zada
 
 ## 6. Hosting (Vercel)
 
-1. Zaimportuj repozytorium; jako **Root Directory** wskaż `restaurant-os`.
+1. Zaimportuj repozytorium; Root Directory zostaw domyślny (katalog główny).
 2. Zmienne środowiskowe: `SUPABASE_URL` i `SUPABASE_ANON_KEY` (tylko klucz anon/publishable!). Build (`npm run build`) odrzuci klucz `service_role`.
 3. Po wdrożeniu w Supabase: _Authentication → URL Configuration_ ustaw **Site URL** na adres aplikacji i dodaj go do **Redirect URLs** (potrzebne do linku resetu hasła).
 4. Opcjonalnie w _Authentication → Email Templates_ przetłumacz wiadomości na polski.
